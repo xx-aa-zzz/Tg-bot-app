@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة تحكم المتجر</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 لوحة تحكم المتجر</h1>
+            <p>اختر العملية المطلوبة من القائمة أدناه.</p>
+        </header>
+        <main class="menu">
+            <h2>التقارير الرئيسية</h2>
+            <button id="reportBtn" class="menu-button">📊 تقرير المبيعات</button>
+            <button id="staffBtn" class="menu-button">👩‍💼 أداء الموظفات</button>
+            <button id="provincesBtn" class="menu-button">🗺️ تقرير المحافظات</button>
+            <button id="piecesBtn" class="menu-button">🔢 تقرير عدد القطع</button>
+            <button id="repetitionBtn" class="menu-button">🔄 تقرير تكرار الزبائن</button>
+        </main>
+        <div id="result-container" class="result"></div>
+    </div>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
