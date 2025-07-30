@@ -1,41 +1,58 @@
-// تهيئة تطبيق تليجرام
 const tg = window.Telegram.WebApp;
 tg.ready();
 tg.expand();
 
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyorwUsD4hIwKQZTvkGAnDYjFgI0JQWq-cwkD3oUs-079Q4SAkiZkmi4KP_KGkkNZQUsg/exec"; // 🔴 تأكد أن هذا هو الرابط الصحيح
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyorwUsD4hIwKQZTvkGAnDYjFgI0JQWq-cwkD3oUs-079Q4SAkiZkmi4KP_KGkkNZQUsg/exec"; 
 
-const resultContainer = document.getElementById('result-container');
-
-function testConnection() {
+function showLoading(message) {
+    const resultContainer = document.getElementById('result-container');
+    resultContainer.style.color = 'var(--tg-theme-text-color)';
     resultContainer.style.display = 'block';
-    resultContainer.innerText = 'جاري الاتصال بالخادم...';
+    resultContainer.innerHTML = `<div class="loader"></div><p>${message || 'جاري التحميل...'}</p>`;
+}
 
-    fetch(SCRIPT_URL)
+function showResult(title, period, summary) {
+    const resultContainer = document.getElementById('result-container');
+    const periodText = period.replace(/للفترة من|لليوم|ليوم/g, '').replace(/إلى/g, '-').trim();
+    resultContainer.innerHTML = `<h3>${title}</h3><p class="period">${periodText}</p><pre>${summary}</pre>`;
+}
+
+function showError(error) {
+    const resultContainer = document.getElementById('result-container');
+    resultContainer.style.color = 'red';
+    resultContainer.innerText = `حدث خطأ: ${error}`;
+}
+
+function fetchData(action, args = 'report,today') {
+    showLoading(`جاري طلب البيانات...`);
+
+    fetch(`${SCRIPT_URL}?action=${action}&args=${encodeURIComponent(args)}`)
         .then(response => {
             if (!response.ok) {
-                // إذا كان هناك خطأ، حاول قراءة الرد كنص عادي
-                return response.text().then(text => {
-                   throw new Error(`خطأ في الشبكة: ${response.status} - ${text}`);
-                });
+                return response.text().then(text => { throw new Error(`Network response error: ${text}`); });
             }
-            // إذا نجح، اقرأه كـ JSON
             return response.json();
         })
         .then(data => {
-            // اعرض البيانات المستلمة كما هي
-            resultContainer.innerText = JSON.stringify(data, null, 2);
+            if (data.error) {
+                showError(data.error);
+            } else {
+                showResult(data.title, data.period, data.summary);
+            }
         })
         .catch(error => {
-            // اعرض رسالة الخطأ بالتفصيل
-            resultContainer.style.color = 'red';
-            resultContainer.innerText = `فشل الاتصال:\n${error.toString()}`;
+            showError(error.toString());
         });
 }
 
-// ربط كل الأزرار بنفس دالة الاختبار
 document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.menu-button').forEach(button => {
-        button.addEventListener('click', testConnection);
+    document.getElementById('reportBtn').addEventListener('click', () => {
+        fetchData('getSalesReport', 'report,today'); 
     });
+
+    document.getElementById('staffBtn').addEventListener('click', () => {
+        fetchData('getStaffReport', 'report,today');
+    });
+
+    // Add other buttons here
 });
