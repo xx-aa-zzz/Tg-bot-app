@@ -3,7 +3,7 @@ const tg = window.Telegram.WebApp;
 tg.ready();
 tg.expand();
 
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyiQOR6rF1ouX882N6yl6bwGbzqVMwN8jlUBXYHeNzMnDk6F5tzmZ8N_TFotFQ6vTQWPw/exec"; // 🔴 تأكد أن هذا هو الرابط الصحيح
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyorwUsD4hIwKQZTvkGAnDYjFgI0JQWq-cwkD3oUs-079Q4SAkiZkmi4KP_KGkkNZQUsg/exec"; // 🔴 تأكد أن هذا هو الرابط الصحيح
 
 const resultContainer = document.getElementById('result-container');
 
