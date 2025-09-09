@@ -1,29 +1,70 @@
-
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>لوحة تحكم المتجر</title>
+    <title>اسمك | مرحباً بك في صفحتي</title>
+    <meta name="description" content="جميع روابطي في مكان واحد.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- Main CSS File -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <div class="container">
-        <header>
-            <h1>🤖 لوحة تحكم المتجر</h1>
-            <p>اختر العملية المطلوبة من القائمة أدناه.</p>
+        <!-- Profile Section -->
+        <header class="profile">
+            <div class="profile-picture-wrapper">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="الصورة الشخصية" class="profile-picture">
+            </div>
+            <h1 id="typing-effect">عبدالله محمد</h1>
+            <p class="bio">مطور واجهات أمامية | أصنع تجارب ويب مبتكرة وسهلة الاستخدام.</p>
         </header>
-        <main class="menu">
-            <h2>التقارير الرئيسية</h2>
-            <button id="reportBtn" class="menu-button">📊 تقرير المبيعات</button>
-            <button id="staffBtn" class="menu-button">👩‍💼 أداء الموظفات</button>
-            <button id="provincesBtn" class="menu-button">🗺️ تقرير المحافظات</button>
-            <button id="piecesBtn" class="menu-button">🔢 تقرير عدد القطع</button>
-            <button id="repetitionBtn" class="menu-button">🔄 تقرير تكرار الزبائن</button>
+
+        <!-- Social Media Links -->
+        <section class="social-links">
+            <a href="#" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </section>
+
+        <!-- Main Links Section -->
+        <main class="main-links">
+            <a href="#" target="_blank" class="link-card">
+                <i class="fas fa-briefcase link-icon"></i>
+                <span>معرض أعمالي</span>
+            </a>
+            <a href="#" target="_blank" class="link-card">
+                <i class="fas fa-file-alt link-icon"></i>
+                <span>سيرتي الذاتية</span>
+            </a>
+            <a href="#" target="_blank" class="link-card">
+                <i class="fas fa-blog link-icon"></i>
+                <span>اقرأ مدونتي</span>
+            </a>
+            <a href="#" target="_blank" class="link-card">
+                <i class="fas fa-envelope link-icon"></i>
+                <span>تواصل معي</span>
+            </a>
         </main>
-        <div id="result-container" class="result"></div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 اسمك. كل الحقوق محفوظة.</p>
+        </footer>
     </div>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+    <!-- JavaScript Files -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="script.js"></script>
 </body>
 </html>
