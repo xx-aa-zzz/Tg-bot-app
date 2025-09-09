@@ -1,134 +1,127 @@
 :root {
-    --green-glow: #7CFC00;
-    --background-color: #000000;
-    --text-color: #ffffff;
-    --shadow-color: rgba(124, 252, 0, 0.7);
+    --brand-green: #7CFC00; /* Your exact green color */
+    --text-color-dark: #1a1a1a; /* Using a very dark gray for text */
+    --text-color-light: #ffffff;
 }
 
 * {
     margin: 0; padding: 0; box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 body {
     font-family: 'Tajawal', sans-serif;
-    background-color: var(--background-color);
-    color: var(--text-color);
+    background-color: var(--brand-green);
+    color: var(--text-color-dark);
     text-align: center;
     overflow-x: hidden;
 }
 
-/* --- Interactive Particle Background --- */
-#particles-js {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: -1;
-}
-
 .container {
-    position: relative;
-    z-index: 1;
     width: 100%;
-    max-width: 800px;
+    max-width: 600px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 40px 20px;
 }
 
-/* --- Hero Section (First View) --- */
-.fullscreen-section {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.hero-content {
-    animation: fadeIn 2s ease-out;
+/* --- Hero Section --- */
+.hero-section {
+    padding: 60px 0;
 }
 
 .logo {
-    width: 120px;
+    width: 100px;
     margin-bottom: 20px;
     border-radius: 20px;
-    box-shadow: 0 0 30px var(--shadow-color);
+    background-color: rgba(0,0,0,0.1); /* Slight dark background to pop */
+    padding: 5px;
 }
 
 h1 {
-    font-size: 3.5rem;
+    font-size: 3rem;
     font-weight: 800;
-    text-shadow: 0 0 10px var(--shadow-color);
 }
 
 p {
-    font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
+    color: rgba(0, 0, 0, 0.8);
+    margin-top: 10px;
 }
 
-/* --- Links & Social Sections --- */
-.links-section, .social-section, .footer {
-    padding: 80px 0;
-}
-
-.section-title {
-    font-size: 2rem;
-    margin-bottom: 30px;
-    font-weight: 700;
-    text-shadow: 0 0 8px var(--shadow-color);
+/* --- Links Section --- */
+.links-section {
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .link-card {
-    background: transparent;
-    color: var(--text-color);
-    padding: 18px 30px;
-    margin: 15px auto;
-    border-radius: 10px;
+    /* The Glassmorphism Effect */
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    
+    color: var(--text-color-light); /* Light text on dark glass */
+    padding: 20px;
+    border-radius: 15px;
     text-decoration: none;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-weight: 700;
-    display: block;
-    width: 100%;
-    max-width: 500px;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    transition: all 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    transition: all 0.3s ease-in-out;
 }
 
 .link-card:hover {
-    color: var(--green-glow);
-    border-color: var(--green-glow);
-    box-shadow: 0 0 20px var(--shadow-color);
-    transform: scale(1.05) translateY(-5px);
+    background: rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.03) translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.link-card i {
+    transition: transform 0.3s ease;
+}
+
+.link-card:hover i {
+    transform: translateX(-8px);
+}
+
+/* --- Social & Footer --- */
+.social-section {
+    padding: 40px 0;
 }
 
 .social-links-wrapper {
     display: flex;
     justify-content: center;
-    gap: 40px;
+    gap: 30px;
 }
 
 .social-links-wrapper a {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 2rem;
+    color: var(--text-color-dark);
+    font-size: 1.8rem;
     transition: all 0.3s ease;
 }
 
 .social-links-wrapper a:hover {
-    color: var(--green-glow);
-    transform: scale(1.2);
-    text-shadow: 0 0 15px var(--shadow-color);
+    color: var(--text-color-light);
+    transform: scale(1.2) translateY(-3px);
+    text-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.footer {
+    padding-top: 20px;
+    color: rgba(0, 0, 0, 0.6);
 }
 
 /* --- Animation Logic --- */
 .reveal {
     opacity: 0;
-    transform: translateY(60px);
-    transition: opacity 1.2s cubic-bezier(0.19, 1, 0.22, 1), transform 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+    transform: translateY(40px);
+    transition: opacity 1s cubic-bezier(0.5, 0, 0, 1), transform 1s cubic-bezier(0.5, 0, 0, 1);
 }
 
 .reveal.visible {
@@ -136,13 +129,6 @@ p {
     transform: translateY(0);
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1); }
-}
-
 @media (max-width: 600px) {
-    h1 { font-size: 2.8rem; }
-    .section-title { font-size: 1.8rem; }
-    .link-card { font-size: 1.1rem; }
+    h1 { font-size: 2.5rem; }
 }
