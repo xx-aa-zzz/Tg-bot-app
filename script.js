@@ -1,31 +1,84 @@
+/* --- Scroll Animation Logic --- */
 document.addEventListener('DOMContentLoaded', () => {
-
-    // Select all elements that need to be revealed
     const revealElements = document.querySelectorAll('.reveal');
-
-    // Set up the Intersection Observer
     const observerOptions = {
-        root: null, // observes intersections relative to the viewport
+        root: null,
         rootMargin: '0px',
-        threshold: 0.1 // trigger when 10% of the element is visible
+        threshold: 0.1
     };
-
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
-            // If the element is intersecting (visible on screen)
             if (entry.isIntersecting) {
-                // Add the 'visible' class to trigger the CSS animation
                 entry.target.classList.add('visible');
-                
-                // Stop observing the element once it has been revealed
                 observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
-
-    // Start observing each of the reveal elements
     revealElements.forEach(element => {
         observer.observe(element);
     });
+});
 
+/* --- Particles.js Configuration --- */
+particlesJS('particles-js', {
+  "particles": {
+    "number": {
+      "value": 80,
+      "density": {
+        "enable": true,
+        "value_area": 800
+      }
+    },
+    "color": {
+      "value": "#7CFC00" // The glow green color
+    },
+    "shape": {
+      "type": "circle"
+    },
+    "opacity": {
+      "value": 0.5,
+      "random": true
+    },
+    "size": {
+      "value": 3,
+      "random": true
+    },
+    "line_linked": {
+      "enable": true,
+      "distance": 150,
+      "color": "#ffffff",
+      "opacity": 0.1,
+      "width": 1
+    },
+    "move": {
+      "enable": true,
+      "speed": 2,
+      "direction": "none",
+      "out_mode": "out"
+    }
+  },
+  "interactivity": {
+    "detect_on": "canvas",
+    "events": {
+      "onhover": {
+        "enable": true,
+        "mode": "repulse"
+      },
+      "onclick": {
+        "enable": true,
+        "mode": "push"
+      },
+      "resize": true
+    },
+    "modes": {
+      "repulse": {
+        "distance": 100,
+        "duration": 0.4
+      },
+       "push": {
+        "particles_nb": 4
+      }
+    }
+  },
+  "retina_detect": true
 });
