@@ -1,12 +1,11 @@
 /* --- General Styling --- */
 :root {
-    --primary-color: #bb86fc;
-    --primary-variant: #3700b3;
-    --secondary-color: #03dac6;
-    --background-color: #121212;
-    --surface-color: #1e1e1e;
-    --on-surface-color: #e1e1e1;
-    --on-background-color: #ffffff;
+    --primary-color: #FFC300; /* Vibrant Yellow */
+    --secondary-color: #FF5733; /* Energetic Orange */
+    --background-color: #141414; /* Deep Black */
+    --surface-color: #212121; /* Dark Gray */
+    --text-color: #FFFFFF;
+    --text-color-dark: #141414;
 }
 
 * {
@@ -18,30 +17,22 @@
 body {
     font-family: 'Cairo', sans-serif;
     background-color: var(--background-color);
-    color: var(--on-background-color);
-    background-image: url('https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');
-    background-size: cover;
-    background-position: center center;
-    background-attachment: fixed;
+    color: var(--text-color);
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    min-height: 100vh;
-    padding: 20px;
-    backdrop-filter: blur(5px);
+    padding: 20px 15px;
+    background-image: linear-gradient(rgba(20, 20, 20, 0.9), rgba(20, 20, 20, 0.9)), url('https://www.transparenttextures.com/patterns/carbon-fibre.png');
 }
 
 .container {
     width: 100%;
     max-width: 680px;
-    background: rgba(30, 30, 30, 0.75);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.125);
+    background-color: var(--surface-color);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 30px;
     text-align: center;
-    animation: fadeIn 1s ease-in-out;
+    animation: fadeIn 0.8s ease-out;
 }
 
 @keyframes fadeIn {
@@ -49,55 +40,28 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* --- Profile Section --- */
-.profile-picture-wrapper {
-    position: relative;
-    display: inline-block;
-    margin-bottom: 20px;
-}
-
-.profile-picture {
-    width: 150px;
-    height: 150px;
+/* --- Header Section --- */
+.logo {
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
-    border: 4px solid var(--primary-color);
+    border: 3px solid var(--primary-color);
+    margin-bottom: 15px;
     object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.profile-picture:hover {
-    transform: scale(1.05);
-}
-
-.profile-picture-wrapper::before {
-    content: '';
-    position: absolute;
-    top: -6px;
-    left: -6px;
-    right: -6px;
-    bottom: -6px;
-    border-radius: 50%;
-    border: 2px solid var(--primary-color);
-    animation: pulse 2s infinite;
-    opacity: 0;
-}
-
-@keyframes pulse {
-    0% { transform: scale(0.95); opacity: 0.7; }
-    70% { transform: scale(1.1); opacity: 0; }
-    100% { transform: scale(0.95); opacity: 0; }
+    box-shadow: 0 0 20px rgba(255, 195, 0, 0.4);
 }
 
 h1 {
-    font-size: 2rem;
-    color: var(--on-background-color);
-    margin-bottom: 10px;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--primary-color);
+    text-transform: uppercase;
 }
 
 .bio {
     font-size: 1.1rem;
-    color: var(--on-surface-color);
     margin-bottom: 25px;
+    color: rgba(255, 255, 255, 0.8);
 }
 
 /* --- Social Media Links --- */
@@ -105,18 +69,18 @@ h1 {
     margin-bottom: 30px;
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 25px;
 }
 
 .social-links a {
-    color: var(--on-surface-color);
-    font-size: 1.8rem;
-    transition: color 0.3s ease, transform 0.3s ease;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.7rem;
+    transition: all 0.3s ease;
 }
 
 .social-links a:hover {
     color: var(--primary-color);
-    transform: translateY(-5px);
+    transform: scale(1.2) rotate(10deg);
 }
 
 /* --- Main Links Section --- */
@@ -124,55 +88,88 @@ h1 {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    margin-bottom: 40px;
 }
 
 .link-card {
     background-color: rgba(255, 255, 255, 0.05);
-    color: var(--on-surface-color);
-    padding: 20px;
+    color: var(--text-color);
+    padding: 18px;
     border-radius: 12px;
     text-decoration: none;
     font-size: 1.1rem;
-    font-weight: bold;
+    font-weight: 700;
     display: flex;
     align-items: center;
     justify-content: center;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .link-card:hover {
-    background-color: rgba(187, 134, 252, 0.15);
+    background-color: var(--primary-color);
+    color: var(--text-color-dark);
     transform: scale(1.03);
+    border-color: var(--primary-color);
 }
 
 .link-icon {
-    margin-left: 15px; /* Changed from margin-right to margin-left for RTL */
+    margin-left: 12px;
     font-size: 1.2rem;
-    color: var(--secondary-color);
+}
+
+.link-card.special-offer {
+    background-color: var(--primary-color);
+    color: var(--text-color-dark);
+    animation: pulse-animation 2s infinite;
+}
+.link-card.special-offer:hover {
+    animation-play-state: paused;
+}
+
+@keyframes pulse-animation {
+    0% { box-shadow: 0 0 0 0 rgba(255, 195, 0, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(255, 195, 0, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 195, 0, 0); }
+}
+
+/* --- Featured Content (Video & Map) --- */
+.featured-content {
+    margin-bottom: 40px;
+}
+
+.featured-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.video-wrapper, .map-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.video-wrapper iframe, .map-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 /* --- Footer --- */
 .footer {
-    margin-top: 30px;
     font-size: 0.9rem;
-    color: var(--on-surface-color);
-    opacity: 0.7;
+    color: rgba(255, 255, 255, 0.5);
 }
 
 /* --- Responsive Design --- */
 @media (max-width: 480px) {
-    body {
-        padding: 10px;
-    }
-    .container {
-        padding: 20px;
-    }
-    h1 {
-        font-size: 1.8rem;
-    }
-    .profile-picture {
-        width: 120px;
-        height: 120px;
-    }
+    body { padding: 10px; }
+    .container { padding: 20px; }
+    h1 { font-size: 2rem; }
+    .logo { width: 100px; height: 100px; }
 }
