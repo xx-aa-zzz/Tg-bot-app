@@ -1,13 +1,12 @@
 :root {
-    --green-color: #7CFC00; /* Use the exact green from your logo */
+    --green-glow: #7CFC00;
     --background-color: #000000;
-    --text-color: #FFFFFF;
+    --text-color: #ffffff;
+    --shadow-color: rgba(124, 252, 0, 0.7);
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin: 0; padding: 0; box-sizing: border-box;
 }
 
 html {
@@ -19,12 +18,24 @@ body {
     background-color: var(--background-color);
     color: var(--text-color);
     text-align: center;
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-x: hidden;
+}
+
+/* --- Interactive Particle Background --- */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
 }
 
 .container {
+    position: relative;
+    z-index: 1;
     width: 100%;
-    max-width: 900px;
+    max-width: 800px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -39,19 +50,20 @@ body {
 }
 
 .hero-content {
-    animation: fadeIn 1.5s ease-out;
+    animation: fadeIn 2s ease-out;
 }
 
 .logo {
     width: 120px;
     margin-bottom: 20px;
-    border-radius: 20px; /* Rounded square to match logo */
+    border-radius: 20px;
+    box-shadow: 0 0 30px var(--shadow-color);
 }
 
 h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 800;
-    margin-bottom: 10px;
+    text-shadow: 0 0 10px var(--shadow-color);
 }
 
 p {
@@ -59,88 +71,64 @@ p {
     color: rgba(255, 255, 255, 0.8);
 }
 
-.scroll-down-indicator {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 1.5rem;
-    animation: bounce 2s infinite;
+/* --- Links & Social Sections --- */
+.links-section, .social-section, .footer {
+    padding: 80px 0;
 }
 
-/* --- Links Section --- */
-.links-section {
-    padding: 100px 0;
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-    align-items: center;
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    font-weight: 700;
+    text-shadow: 0 0 8px var(--shadow-color);
 }
 
 .link-card {
     background: transparent;
     color: var(--text-color);
-    padding: 20px 30px;
-    border-radius: 12px;
+    padding: 18px 30px;
+    margin: 15px auto;
+    border-radius: 10px;
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 700;
-    display: flex;
+    display: block;
     width: 100%;
     max-width: 500px;
-    align-items: center;
-    justify-content: space-between;
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.2);
     transition: all 0.4s ease;
 }
 
 .link-card:hover {
-    border-color: var(--green-color);
-    background-color: rgba(124, 252, 0, 0.1);
-    color: var(--green-color);
-    transform: scale(1.05);
-}
-
-.link-card i {
-    transition: transform 0.4s ease;
-}
-
-.link-card:hover i {
-    transform: translateX(-10px);
-}
-
-/* --- Social & Footer Sections --- */
-.social-section {
-    padding-bottom: 50px;
+    color: var(--green-glow);
+    border-color: var(--green-glow);
+    box-shadow: 0 0 20px var(--shadow-color);
+    transform: scale(1.05) translateY(-5px);
 }
 
 .social-links-wrapper {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 40px;
 }
 
 .social-links-wrapper a {
     color: rgba(255, 255, 255, 0.7);
-    font-size: 1.8rem;
+    font-size: 2rem;
     transition: all 0.3s ease;
 }
 
 .social-links-wrapper a:hover {
-    color: var(--green-color);
-    transform: translateY(-5px);
+    color: var(--green-glow);
+    transform: scale(1.2);
+    text-shadow: 0 0 15px var(--shadow-color);
 }
 
-.footer {
-    padding: 20px 0 40px;
-    color: rgba(255, 255, 255, 0.5);
-}
-
-/* --- THE ANIMATION LOGIC --- */
+/* --- Animation Logic --- */
 .reveal {
     opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 1s cubic-bezier(0.5, 0, 0, 1), transform 1s cubic-bezier(0.5, 0, 0, 1);
+    transform: translateY(60px);
+    transition: opacity 1.2s cubic-bezier(0.19, 1, 0.22, 1), transform 1.2s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .reveal.visible {
@@ -148,27 +136,13 @@ p {
     transform: translateY(0);
 }
 
-/* --- Animations --- */
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
 }
 
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-    }
-    40% {
-        transform: translateY(-15px);
-    }
-    60% {
-        transform: translateY(-8px);
-    }
-}
-
-/* --- Responsive for smaller screens --- */
 @media (max-width: 600px) {
-    h1 { font-size: 2.5rem; }
-    p { font-size: 1rem; }
-    .link-card { font-size: 1.2rem; padding: 18px 25px; }
+    h1 { font-size: 2.8rem; }
+    .section-title { font-size: 1.8rem; }
+    .link-card { font-size: 1.1rem; }
 }
