@@ -3,24 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DOTDNA - حلول رقمية</title>
-    <!-- Font Awesome for Icons -->
+    <title>Smart Link - نصنع المستقبل البصري</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- شريط التنقل العائم -->
-    <header class="header">
-        <nav class="container glass-container">
-            <a href="#" class="logo">DOTDNA</a>
+    <header class="header glass-container">
+        <nav class="container">
+            <a href="#" class="logo">Smart Link</a>
             <ul class="nav-links">
                 <li><a href="#hero">الرئيسية</a></li>
                 <li><a href="#services">خدماتنا</a></li>
                 <li><a href="#portfolio">أعمالنا</a></li>
-                <li><a href="#plans">الخطط</a></li>
+                <li><a href="#contact">تواصل معنا</a></li>
             </ul>
-            <a href="#" class="btn-contact">تواصل معنا</a>
             <div class="hamburger-menu">
                 <i class="fas fa-bars"></i>
             </div>
@@ -28,112 +25,97 @@
     </header>
     
     <main>
-        <!-- القسم الرئيسي -->
         <section id="hero" class="hero-section">
             <div class="container">
-                <h1>حلول أمنية رقمية مصممة خصيصاً لك</h1>
-                <p>نحن متخصصون في إنشاء محاكاة ضخمة للتهديدات لضبط وتضخيم دفاعات الأمن السيبراني.</p>
+                <h1>نصنع المستقبل البصري لعلامتك التجارية بالذكاء الاصطناعي</h1>
+                <p>نحول أفكارك إلى صور، فيديوهات، وأصوات إبداعية تتجاوز الخيال.</p>
+                <a href="#services" class="btn">اكتشف خدماتنا</a>
             </div>
         </section>
 
-        <!-- قسم الخدمات -->
         <section id="services" class="services-section">
             <div class="container">
                 <div class="section-title">
-                    <h2>خدماتنا</h2>
+                    <h2>خدماتنا المبتكرة</h2>
                 </div>
                 <div class="services-grid">
-                    <!-- بطاقة خدمة 1 -->
                     <div class="service-card glass-container">
-                        <i class="fas fa-shield-halved service-icon"></i>
-                        <h3>الأمن الهجومي</h3>
-                        <p>اختبار الاختراق والعمليات التعاونية بين الفرق المختلفة.</p>
+                        <i class="fas fa-camera-retro service-icon"></i>
+                        <h3>تصوير المنتجات بالـ AI</h3>
+                        <p>نخلق صوراً احترافية لمنتجاتك في أي بيئة تتخيلها، بدون الحاجة لجلسة تصوير حقيقية.</p>
                     </div>
-                    <!-- بطاقة خدمة 2 -->
                     <div class="service-card glass-container">
-                        <i class="fas fa-fingerprint service-icon"></i>
-                        <h3>إدارة الأصول</h3>
-                        <p>دقة بيانات مدعومة بالذكاء الاصطناعي للحفاظ على فهم واضح للأصول.</p>
+                        <i class="fas fa-microphone-alt service-icon"></i>
+                        <h3>تعليق صوتي بالـ AI</h3>
+                        <p>تعليق صوتي احترافي لمقاطع الفيديو والإعلانات بأصوات طبيعية ولهجات متعددة.</p>
                     </div>
-                    <!-- بطاقة خدمة 3 -->
                     <div class="service-card glass-container">
-                        <i class="fas fa-cloud service-icon"></i>
-                        <h3>الأمن السحابي</h3>
-                        <p>حلول أمنية شاملة للبنية التحتية السحابية الخاصة بك.</p>
+                        <i class="fas fa-video service-icon"></i>
+                        <h3>فيديوهات إعلانية بالـ AI</h3>
+                        <p>نحول النصوص والأفكار إلى فيديوهات إعلانية قصيرة وجذابة لمنصات التواصل.</p>
+                    </div>
+                    <div class="service-card glass-container">
+                        <i class="fas fa-rocket service-icon"></i>
+                        <h3>أنيميشن بالـ AI</h3>
+                        <p>صناعة رسوم متحركة مبتكرة لشرح خدماتك أو سرد قصة علامتك التجارية.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- [جديد] قسم معرض الأعمال الدوار -->
+        <!-- [جديد] قسم معرض الأعمال القابل للسحب -->
         <section id="portfolio" class="portfolio-section">
             <div class="container">
                 <div class="section-title">
                     <h2>من أعمالنا</h2>
                 </div>
-                <div class="carousel">
-                    <div class="carousel-inner">
-                        <!-- أضف صور أعمالك هنا -->
-                        <img src="https://picsum.photos/300/600?random=1" alt="نموذج عمل 1">
-                        <img src="https://picsum.photos/300/600?random=2" alt="نموذج عمل 2">
-                        <img src="https://picsum.photos/300/600?random=3" alt="نموذج عمل 3">
-                        <img src="https://picsum.photos/300/600?random=4" alt="نموذج عمل 4">
-                        <img src="https://picsum.photos/300/600?random=5" alt="نموذج عمل 5">
+                <div class="carousel-container">
+                    <div class="carousel-track">
+                        <!-- كل صورة داخل إطار زجاجي -->
+                        <div class="carousel-item glass-container">
+                            <img src="https://picsum.photos/300/600?random=1" alt="نموذج عمل 1">
+                        </div>
+                        <div class="carousel-item glass-container">
+                            <img src="https://picsum.photos/300/600?random=2" alt="نموذج عمل 2">
+                        </div>
+                        <div class="carousel-item glass-container">
+                            <img src="https://picsum.photos/300/600?random=3" alt="نموذج عمل 3">
+                        </div>
+                        <div class="carousel-item glass-container">
+                            <img src="https://picsum.photos/300/600?random=4" alt="نموذج عمل 4">
+                        </div>
+                        <div class="carousel-item glass-container">
+                            <img src="https://picsum.photos/300/600?random=5" alt="نموذج عمل 5">
+                        </div>
+                         <div class="carousel-item glass-container">
+                            <img src="https://picsum.photos/300/600?random=6" alt="نموذج عمل 6">
+                        </div>
                     </div>
-                    <button class="carousel-control prev"><i class="fas fa-chevron-left"></i></button>
-                    <button class="carousel-control next"><i class="fas fa-chevron-right"></i></button>
                 </div>
             </div>
         </section>
 
-        <!-- قسم الخطط التفاعلي -->
-        <section id="plans" class="plans-section">
-            <div class="container">
-                <div class="plan-card glass-container">
-                    <h2>اختر نوع العرض</h2>
-                    <p>ما هو نوع التعاون الذي تفكر فيه؟</p>
-                    <ul class="plan-options">
-                        <li class="plan-option">
-                            <div class="plan-info">
-                                <i class="fas fa-handshake plan-icon"></i>
-                                <div>
-                                    <h3>تعاون</h3>
-                                    <p>يعامل كشراكة</p>
-                                </div>
-                            </div>
-                            <i class="fas fa-arrow-left plan-arrow"></i>
-                        </li>
-                        <li class="plan-option">
-                             <div class="plan-info">
-                                <i class="fas fa-dollar-sign plan-icon"></i>
-                                <div>
-                                    <h3>خطة مدفوعة</h3>
-                                    <p>حسب الميزانية، متوسط 600 دولار</p>
-                                </div>
-                            </div>
-                            <i class="fas fa-arrow-left plan-arrow"></i>
-                        </li>
-                        <li class="plan-option">
-                             <div class="plan-info">
-                                <i class="fas fa-gift plan-icon"></i>
-                                <div>
-                                    <h3>خطة مجانية</h3>
-                                    <p>على أساس المنافع المتبادلة</p>
-                                </div>
-                            </div>
-                            <i class="fas fa-arrow-left plan-arrow"></i>
-                        </li>
-                    </ul>
+        <section id="contact" class="contact-section">
+             <div class="container">
+                <div class="section-title">
+                    <h2>لنبدأ مشروعك القادم</h2>
+                </div>
+                <div class="contact-card glass-container">
+                    <p>جاهز لتحويل أفكارك إلى حقيقة؟ تواصل معنا اليوم.</p>
+                    <h3><i class="fas fa-envelope"></i> contact@smartlink.com</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-telegram-plane"></i></a>
+                    </div>
                 </div>
             </div>
         </section>
-
     </main>
 
-    <!-- التذييل -->
-    <footer id="footer" class="footer">
+    <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 DOTDNA. كل الحقوق محفوظة.</p>
+            <p>&copy; 2025 Smart Link. كل الحقوق محفوظة.</p>
         </div>
     </footer>
 
