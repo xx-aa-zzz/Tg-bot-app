@@ -3,24 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DOTDNA - Digital Solutions</title>
+    <title>DOTDNA - حلول رقمية</title>
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Module 2: Floating Navigation Bar -->
+    <!-- شريط التنقل العائم -->
     <header class="header">
         <nav class="container glass-container">
             <a href="#" class="logo">DOTDNA</a>
             <ul class="nav-links">
-                <li><a href="#hero">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#plans">Product</a></li>
-                <li><a href="#">About us</a></li>
+                <li><a href="#hero">الرئيسية</a></li>
+                <li><a href="#services">خدماتنا</a></li>
+                <li><a href="#portfolio">أعمالنا</a></li>
+                <li><a href="#plans">الخطط</a></li>
             </ul>
-            <a href="#" class="btn-contact">Contact us</a>
+            <a href="#" class="btn-contact">تواصل معنا</a>
             <div class="hamburger-menu">
                 <i class="fas fa-bars"></i>
             </div>
@@ -28,79 +28,100 @@
     </header>
     
     <main>
-        <!-- Module 3: Hero Section -->
+        <!-- القسم الرئيسي -->
         <section id="hero" class="hero-section">
             <div class="container">
-                <h1>Tailored digital security solutions</h1>
-                <p>We specialize in creating massive, threat simulations to fine-tune and amplify cybersecurity defenses.</p>
+                <h1>حلول أمنية رقمية مصممة خصيصاً لك</h1>
+                <p>نحن متخصصون في إنشاء محاكاة ضخمة للتهديدات لضبط وتضخيم دفاعات الأمن السيبراني.</p>
             </div>
         </section>
 
-        <!-- Module 4: Services Section -->
+        <!-- قسم الخدمات -->
         <section id="services" class="services-section">
             <div class="container">
                 <div class="section-title">
-                    <h2>Our Services</h2>
+                    <h2>خدماتنا</h2>
                 </div>
                 <div class="services-grid">
-                    <!-- Service Card 1 -->
+                    <!-- بطاقة خدمة 1 -->
                     <div class="service-card glass-container">
                         <i class="fas fa-shield-halved service-icon"></i>
-                        <h3>Offensive Security</h3>
-                        <p>Penetration testing and collaborative cross-team operations.</p>
+                        <h3>الأمن الهجومي</h3>
+                        <p>اختبار الاختراق والعمليات التعاونية بين الفرق المختلفة.</p>
                     </div>
-                    <!-- Service Card 2 -->
+                    <!-- بطاقة خدمة 2 -->
                     <div class="service-card glass-container">
                         <i class="fas fa-fingerprint service-icon"></i>
-                        <h3>Asset Management</h3>
-                        <p>AI-Powered data precision to maintain a clear understanding of assets.</p>
+                        <h3>إدارة الأصول</h3>
+                        <p>دقة بيانات مدعومة بالذكاء الاصطناعي للحفاظ على فهم واضح للأصول.</p>
                     </div>
-                    <!-- Service Card 3 -->
+                    <!-- بطاقة خدمة 3 -->
                     <div class="service-card glass-container">
                         <i class="fas fa-cloud service-icon"></i>
-                        <h3>Cloud Security</h3>
-                        <p>Comprehensive security solutions for your cloud infrastructure.</p>
+                        <h3>الأمن السحابي</h3>
+                        <p>حلول أمنية شاملة للبنية التحتية السحابية الخاصة بك.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Module 5: Interactive Plans Section -->
+        <!-- [جديد] قسم معرض الأعمال الدوار -->
+        <section id="portfolio" class="portfolio-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>من أعمالنا</h2>
+                </div>
+                <div class="carousel">
+                    <div class="carousel-inner">
+                        <!-- أضف صور أعمالك هنا -->
+                        <img src="https://picsum.photos/300/600?random=1" alt="نموذج عمل 1">
+                        <img src="https://picsum.photos/300/600?random=2" alt="نموذج عمل 2">
+                        <img src="https://picsum.photos/300/600?random=3" alt="نموذج عمل 3">
+                        <img src="https://picsum.photos/300/600?random=4" alt="نموذج عمل 4">
+                        <img src="https://picsum.photos/300/600?random=5" alt="نموذج عمل 5">
+                    </div>
+                    <button class="carousel-control prev"><i class="fas fa-chevron-left"></i></button>
+                    <button class="carousel-control next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم الخطط التفاعلي -->
         <section id="plans" class="plans-section">
             <div class="container">
                 <div class="plan-card glass-container">
-                    <h2>Choose offer type</h2>
-                    <p>What type of collaboration do you have in mind?</p>
+                    <h2>اختر نوع العرض</h2>
+                    <p>ما هو نوع التعاون الذي تفكر فيه؟</p>
                     <ul class="plan-options">
                         <li class="plan-option">
                             <div class="plan-info">
                                 <i class="fas fa-handshake plan-icon"></i>
                                 <div>
-                                    <h3>Collaboration</h3>
-                                    <p>Treated as partnership</p>
+                                    <h3>تعاون</h3>
+                                    <p>يعامل كشراكة</p>
                                 </div>
                             </div>
-                            <i class="fas fa-arrow-right plan-arrow"></i>
+                            <i class="fas fa-arrow-left plan-arrow"></i>
                         </li>
                         <li class="plan-option">
                              <div class="plan-info">
                                 <i class="fas fa-dollar-sign plan-icon"></i>
                                 <div>
-                                    <h3>Paid Plan</h3>
-                                    <p>Budget based, average $600</p>
+                                    <h3>خطة مدفوعة</h3>
+                                    <p>حسب الميزانية، متوسط 600 دولار</p>
                                 </div>
                             </div>
-                            <i class="fas fa-arrow-right plan-arrow"></i>
+                            <i class="fas fa-arrow-left plan-arrow"></i>
                         </li>
                         <li class="plan-option">
                              <div class="plan-info">
                                 <i class="fas fa-gift plan-icon"></i>
                                 <div>
-                                    <h3>Unpaid Plan</h3>
-                                    <p>Based on mutual benefits</p>
+                                    <h3>خطة مجانية</h3>
+                                    <p>على أساس المنافع المتبادلة</p>
                                 </div>
                             </div>
-                            <i class="fas fa-arrow-right plan-arrow"></i>
+                            <i class="fas fa-arrow-left plan-arrow"></i>
                         </li>
                     </ul>
                 </div>
@@ -109,10 +130,10 @@
 
     </main>
 
-    <!-- Module 6: Footer -->
+    <!-- التذييل -->
     <footer id="footer" class="footer">
         <div class="container">
-            <p>&copy; 2025 DOTDNA. All rights reserved.</p>
+            <p>&copy; 2025 DOTDNA. كل الحقوق محفوظة.</p>
         </div>
     </footer>
 
