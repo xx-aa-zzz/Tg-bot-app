@@ -1,132 +1,379 @@
+/* Basic Resets and Global Styles */
 :root {
-    --brand-green: #7CFC00; /* Your exact green color */
-    --text-color-dark: #1a1a1a; /* Using a very dark gray for text */
-    --text-color-light: #ffffff;
+    --primary-color: #007bff;
+    --secondary-color: #333;
+    --background-color: #f4f4f4;
+    --text-color: #333;
+    --light-text-color: #fff;
+    --section-padding: 4rem 0;
 }
 
 * {
-    margin: 0; padding: 0; box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
     font-family: 'Tajawal', sans-serif;
-    background-color: var(--brand-green);
-    color: var(--text-color-dark);
-    text-align: center;
-    overflow-x: hidden;
+    line-height: 1.6;
+    background-color: #fff;
+    color: var(--text-color);
+    scroll-behavior: smooth;
 }
+
+/* Importing Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap');
 
 .container {
-    width: 100%;
-    max-width: 600px;
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 0 2rem;
 }
 
-/* --- Hero Section --- */
-.hero-section {
-    padding: 60px 0;
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background: var(--primary-color);
+    color: var(--light-text-color);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: var(--secondary-color);
+}
+
+
+/* Module 2: Header & Navigation Styles */
+.header {
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
 }
 
 .logo {
-    width: 100px;
-    margin-bottom: 20px;
-    border-radius: 20px;
-    background-color: rgba(0,0,0,0.1); /* Slight dark background to pop */
-    padding: 5px;
-}
-
-h1 {
-    font-size: 3rem;
-    font-weight: 800;
-}
-
-p {
-    font-size: 1.1rem;
-    color: rgba(0, 0, 0, 0.8);
-    margin-top: 10px;
-}
-
-/* --- Links Section --- */
-.links-section {
-    padding: 20px 0;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.link-card {
-    /* The Glassmorphism Effect */
-    background: rgba(0, 0, 0, 0.25); /* خلفية زجاجية داكنة شبه شفافة */
-    backdrop-filter: blur(12px); /* التأثير الضبابي للزجاج المصنفر */
-    -webkit-backdrop-filter: blur(12px); /* لدعم متصفح سفاري */
-    
-    color: var(--text-color-light); /* نص أبيض ليكون واضحًا على الزجاج الداكن */
-    padding: 20px;
-    border-radius: 15px; /* حواف دائرية أكثر */
-    text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: 700;
-    
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.nav-links {
     display: flex;
-    align-items: center;
-    justify-content: center; /* <<< هذا السطر يقوم بوضع النص في الوسط تمامًا */
-    
-    border: 1px solid rgba(255, 255, 255, 0.18); /* إطار خفيف يعزز شكل الزجاج */
-    transition: all 0.3s ease-in-out;
+    list-style: none;
 }
 
-.link-card:hover {
-    background: rgba(0, 0, 0, 0.4); /* يصبح الزجاج أغمق عند اللمس */
-    border-color: rgba(255, 255, 255, 0.5); /* يصبح الإطار أوضح */
-    transform: scale(1.03) translateY(-5px); /* تأثير الرفع للأعلى */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2); /* ظل ناعم لتعزيز الرفع */
+.nav-links li {
+    margin-right: 20px;
 }
 
-.link-card:hover i {
-    transform: translateX(-8px);
+.nav-links a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: 700;
+    transition: color 0.3s ease;
 }
 
-/* --- Social & Footer --- */
-.social-section {
-    padding: 40px 0;
+.nav-links a:hover {
+    color: var(--primary-color);
 }
 
-.social-links-wrapper {
+.hamburger-menu {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+
+/* Module 3: Hero Section Styles */
+.hero-section {
+    position: relative;
+    height: 100vh;
     display: flex;
     justify-content: center;
-    gap: 30px;
+    align-items: center;
+    text-align: center;
+    color: var(--light-text-color);
+    background: url('https://picsum.photos/id/10/1600/900') no-repeat center center/cover;
 }
 
-.social-links-wrapper a {
-    color: var(--text-color-dark);
-    font-size: 1.8rem;
-    transition: all 0.3s ease;
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
 }
 
-.social-links-wrapper a:hover {
-    color: var(--text-color-light);
-    transform: scale(1.2) translateY(-3px);
-    text-shadow: 0 0 10px rgba(0,0,0,0.3);
+.hero-content {
+    position: relative;
+    z-index: 1;
 }
 
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+
+/* Module 4: About Us Section Styles */
+.about-section {
+    padding: var(--section-padding);
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.about-image {
+    flex: 1;
+    text-align: center;
+}
+
+.about-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+
+/* Module 5: Services Section Styles */
+.services-section {
+    padding: var(--section-padding);
+    background-color: var(--background-color);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.service-card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
+
+.service-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 1.5rem;
+}
+
+.card-content h3 {
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin-top: 1rem;
+}
+
+
+/* Module 6: Gallery & Video Styles */
+.gallery-section {
+    padding: var(--section-padding);
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.image-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+.image-grid img:hover {
+    transform: scale(1.05);
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000;
+    border-radius: 10px;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+/* Module 7: Contact & Map Styles */
+.contact-section {
+    padding: var(--section-padding);
+    background: var(--background-color);
+}
+
+.contact-content {
+    display: flex;
+    gap: 2rem;
+}
+
+.contact-info {
+    flex-basis: 50%;
+}
+
+.contact-info h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.contact-info p {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.contact-info p i {
+    color: var(--primary-color);
+    margin-left: 10px; /* margin-right in LTR */
+    font-size: 1.2rem;
+}
+
+.contact-map {
+    flex-basis: 50%;
+    min-height: 300px;
+}
+
+.social-icons a {
+    color: var(--secondary-color);
+    margin-left: 15px;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--primary-color);
+}
+
+
+/* Module 8: Footer Styles */
 .footer {
-    padding-top: 20px;
-    color: rgba(0, 0, 0, 0.6);
+    background: var(--secondary-color);
+    color: var(--light-text-color);
+    text-align: center;
+    padding: 2rem 0;
 }
 
-/* --- Animation Logic --- */
-.reveal {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 1s cubic-bezier(0.5, 0, 0, 1), transform 1s cubic-bezier(0.5, 0, 0, 1);
+.footer .social-icons {
+    margin-bottom: 1rem;
 }
 
-.reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
+.footer .social-icons a {
+    color: #fff;
 }
 
-@media (max-width: 600px) {
-    h1 { font-size: 2.5rem; }
+.footer .social-icons a:hover {
+    color: var(--primary-color);
+}
+
+
+/* Module 9: Responsiveness & Media Queries */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px; /* Adjust based on header height */
+        right: 0;
+        width: 100%;
+        background-color: #fff;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 1rem 0;
+    }
+
+    .hamburger-menu {
+        display: block;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .about-content, .contact-content {
+        flex-direction: column;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .image-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
