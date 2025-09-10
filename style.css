@@ -1,24 +1,18 @@
-/* Importing Google Font */
-@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&display=swap');
 
-/* CSS Variables for Brand Identity */
 :root {
-    --neon-green: #39ff14;
-    --background-dark: #0a0a0a;
-    --text-primary: #e0e0e0;
-    --text-secondary: #a0a0a0;
-    --glass-bg: rgba(20, 20, 20, 0.5);
-    --glass-border: rgba(255, 255, 255, 0.1);
+    --primary-green: #94d82d;
+    --black: #141517;
+    --white: #ffffff;
+    --section-padding: 5rem 0;
 }
 
-/* [جديد] تعريف حركة الخلفية */
-@keyframes pulseBackground {
-    0% { background-size: 100% 100%; }
-    50% { background-size: 125% 125%; }
-    100% { background-size: 100% 100%; }
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
-/* Basic Resets */
 * {
     margin: 0;
     padding: 0;
@@ -27,14 +21,11 @@
 
 body {
     font-family: 'Tajawal', sans-serif;
-    color: var(--text-primary);
-    background-color: var(--background-dark);
-    background-image: radial-gradient(circle at 25% 25%, rgba(57, 255, 20, 0.1), transparent 30%),
-                      radial-gradient(circle at 75% 75%, rgba(57, 255, 20, 0.05), transparent 40%);
+    color: var(--white);
+    background: linear-gradient(-45deg, #141517, #2c5d63, #1e3b3d, #94d82d);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
     overflow-x: hidden;
-    /* [جديد] تطبيق حركة الخلفية */
-    background-size: 100% 100%;
-    animation: pulseBackground 20s ease-in-out infinite;
 }
 
 .container {
@@ -43,66 +34,51 @@ body {
     padding: 0 2rem;
 }
 
-/* Core Glassmorphism Class */
 .glass-container {
-    background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-radius: 15px;
-    border: 1px solid var(--glass-border);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
 }
 
-/* Header & Navigation */
 .header {
     position: sticky;
     top: 1rem;
+    margin: 0 1rem;
     z-index: 1000;
-    padding: 0 1rem;
 }
 
 .header nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.75rem 1.5rem;
+    padding: 1rem 1.5rem;
 }
 
 .logo {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--text-primary);
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--white);
     text-decoration: none;
 }
 
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 .nav-links a {
     text-decoration: none;
-    color: var(--text-secondary);
-    font-weight: 500;
+    color: var(--white);
+    font-weight: 700;
     transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-    color: var(--neon-green);
-}
-
-.btn-contact {
-    padding: 0.6rem 1.2rem;
-    background: var(--neon-green);
-    color: #000;
-    text-decoration: none;
-    font-weight: 700;
-    border-radius: 10px;
-    transition: box-shadow 0.3s ease;
-}
-
-.btn-contact:hover {
-    box-shadow: 0 0 15px var(--neon-green);
+    color: var(--primary-green);
 }
 
 .hamburger-menu {
@@ -111,252 +87,163 @@ body {
     cursor: pointer;
 }
 
-/* Hero Section */
 .hero-section {
-    min-height: 80vh;
+    min-height: calc(100vh - 100px);
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 4rem 0;
+    padding: var(--section-padding);
 }
 
 .hero-section h1 {
     font-size: 3.5rem;
-    font-weight: 300;
+    font-weight: 900;
     margin-bottom: 1rem;
-    max-width: 800px;
+    line-height: 1.2;
 }
 
 .hero-section p {
-    font-size: 1.1rem;
-    color: var(--text-secondary);
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
     max-width: 600px;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* Services Section */
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: var(--primary-green);
+    color: var(--black);
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
 .section-title {
     text-align: center;
     font-size: 2.5rem;
-    font-weight: 500;
+    font-weight: 900;
     margin-bottom: 3rem;
-    color: var(--text-secondary);
 }
 
 .services-section {
-    padding: 4rem 0;
+    padding: var(--section-padding);
 }
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
 }
 
 .service-card {
     padding: 2rem;
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    text-align: center;
+    transition: transform 0.3s ease;
 }
 
 .service-card:hover {
-    transform: translateY(-5px);
-    border-color: rgba(57, 255, 20, 0.3);
+    transform: translateY(-10px);
 }
 
 .service-icon {
-    font-size: 1.5rem;
-    color: var(--neon-green);
+    font-size: 3rem;
+    color: var(--primary-green);
     margin-bottom: 1rem;
 }
 
 .service-card h3 {
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
-    color: var(--text-primary);
 }
 
-.service-card p {
-    color: var(--text-secondary);
-}
-
-/* [جديد] Carousel Section Styles */
+/* [جديد] تنسيقات معرض الأعمال القابل للسحب */
 .portfolio-section {
-    padding: 4rem 0;
+    padding: var(--section-padding);
 }
 
-.carousel {
-    position: relative;
-    max-width: 90%;
-    margin: auto;
+.carousel-container {
     overflow: hidden;
+    cursor: grab;
+    user-select: none;
 }
 
-.carousel-inner {
+.carousel-track {
     display: flex;
-    transition: transform 0.5s ease-in-out;
+    gap: 20px;
+    /* transition لجعل الحركة النهائية سلسة */
+    transition: transform 0.5s ease; 
 }
 
-.carousel-inner img {
+.carousel-item {
     flex-shrink: 0;
-    width: calc(100% / 3); /* عرض 3 صور في الشاشات الكبيرة */
-    padding: 0 10px;
-    border-radius: 15px;
+    width: 300px; /* عرض ثابت للصور الطولية */
+    padding: 15px; /* مسافة داخلية للصورة عن حواف الإطار الزجاجي */
 }
 
-.carousel-control {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    color: var(--text-primary);
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 1.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.carousel-control.prev { left: -25px; }
-.carousel-control.next { right: -25px; }
-
-
-/* Plans Section */
-.plans-section {
-    padding: 4rem 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.plan-card {
+.carousel-item img {
     width: 100%;
-    max-width: 500px;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px; /* لحواف الصورة الداخلية */
+    pointer-events: none; /* لمنع سحب الصورة نفسها بدلاً من الحاوية */
+}
+
+.contact-section {
+    padding: var(--section-padding);
+}
+
+.contact-card {
+    max-width: 600px;
+    margin: 0 auto;
     padding: 2.5rem;
+    text-align: center;
 }
 
-.plan-card h2 {
-    font-size: 2rem;
-    font-weight: 500;
-    margin-bottom: 0.5rem;
+.contact-card p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
 }
 
-.plan-card > p {
-    color: var(--text-secondary);
+.contact-card h3 {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
     margin-bottom: 2rem;
 }
 
-.plan-options {
-    list-style: none;
+.social-icons a {
+    color: var(--white);
+    font-size: 2rem;
+    margin: 0 1rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
-.plan-option {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.25rem;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    border: 1px solid transparent;
+.social-icons a:hover {
+    color: var(--primary-green);
 }
 
-.plan-option:hover {
-    background-color: rgba(57, 255, 20, 0.05);
-    border-color: rgba(57, 255, 20, 0.3);
-}
-
-.plan-info {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
-.plan-icon, .plan-arrow {
-    color: var(--neon-green);
-    font-size: 1.2rem;
-}
-
-.plan-option h3 {
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: var(--text-primary);
-}
-
-.plan-option p {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-}
-
-/* Footer */
 .footer {
     text-align: center;
     padding: 2rem 0;
-    margin-top: 2rem;
-    border-top: 1px solid var(--glass-border);
-    color: var(--text-secondary);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
-
-/* Responsiveness */
-@media (max-width: 992px) {
-    .carousel-inner img {
-        width: calc(100% / 2); /* عرض صورتين */
-    }
-}
-
 
 @media (max-width: 768px) {
-    .nav-links, .btn-contact {
-        display: none;
+    .header { margin: 0; top: 0; }
+    .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; right: 0; width: 100%; background: rgba(20, 21, 23, 0.9); backdrop-filter: blur(5px); padding: 1rem 0; }
+    .nav-links.active { display: flex; }
+    .nav-links li { margin: 1rem 0; }
+    .hamburger-menu { display: block; }
+    .hero-section h1 { font-size: 2.5rem; }
     }
-
-    .hamburger-menu {
-        display: block;
-    }
-    
-    .header {
-        padding: 0;
-    }
-    
-    .header nav.glass-container {
-        width: 100%;
-        top: 0;
-        border-radius: 0;
-    }
-    
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        right: 0;
-        width: 100%;
-        background: rgba(10, 10, 10, 0.9);
-        backdrop-filter: blur(10px);
-        padding: 1rem 0;
-    }
-
-    .nav-links.active {
-        display: flex;
-    }
-
-    .nav-links li {
-        text-align: center;
-        margin: 1rem 0;
-    }
-    
-    .hero-section h1 {
-        font-size: 2.5rem;
-    }
-
-    .carousel-inner img {
-        width: 100%; /* عرض صورة واحدة */
-    }
-
-    .carousel-control.prev { left: 10px; }
-    .carousel-control.next { right: 10px; }
-}
