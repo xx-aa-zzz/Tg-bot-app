@@ -1,4 +1,4 @@
-// JavaScript for mobile menu toggle
+// كود قائمة الهامبرغر
 const hamburgerMenu = document.querySelector('.hamburger-menu');
 const navLinks = document.querySelector('.nav-links');
 
@@ -15,34 +15,55 @@ document.querySelectorAll('.nav-links li a').forEach(link => {
 });
 
 
-// [جديد] JavaScript for Carousel
-const carouselInner = document.querySelector('.carousel-inner');
-const prevButton = document.querySelector('.carousel-control.prev');
-const nextButton = document.querySelector('.carousel-control.next');
-const images = document.querySelectorAll('.carousel-inner img');
+// [جديد] كود معرض الأعمال القابل للسحب (Swipe)
+const track = document.querySelector('.carousel-track');
+const container = document.querySelector('.carousel-container');
 
-let currentIndex = 0;
-let imageWidth = images[0].clientWidth;
+let isDragging = false;
+let startX;
+let scrollLeft;
 
-function updateCarousel() {
-    imageWidth = images[0].clientWidth; // Update width on resize
-    const offset = -currentIndex * imageWidth;
-    carouselInner.style.transform = `translateX(${offset}px)`;
-}
-
-nextButton.addEventListener('click', () => {
-    if (currentIndex < images.length - 1) { // Stop at the last image
-        currentIndex++;
-        updateCarousel();
-    }
+// للسحب بالماوس على الكمبيوتر
+container.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    startX = e.pageX - container.offsetLeft;
+    scrollLeft = container.scrollLeft;
+    container.style.cursor = 'grabbing';
 });
 
-prevButton.addEventListener('click', () => {
-    if (currentIndex > 0) {
-        currentIndex--;
-        updateCarousel();
-    }
+container.addEventListener('mouseleave', () => {
+    isDragging = false;
+    container.style.cursor = 'grab';
 });
 
-// Update carousel on window resize
-window.addEventListener('resize', updateCarousel);
+container.addEventListener('mouseup', () => {
+    isDragging = false;
+    container.style.cursor = 'grab';
+});
+
+container.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX - container.offsetLeft;
+    const walk = (x - startX) * 2; // سرعة السحب
+    container.scrollLeft = scrollLeft - walk;
+});
+
+// للسحب باللمس على الجوال
+container.addEventListener('touchstart', (e) => {
+    isDragging = true;
+    startX = e.touches[0].pageX - container.offsetLeft;
+    scrollLeft = container.scrollLeft;
+});
+
+container.addEventListener('touchend', () => {
+    isDragging = false;
+});
+
+container.addEventListener('touchmove', (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.touches[0].pageX - container.offsetLeft;
+    const walk = (x - startX) * 2;
+    container.scrollLeft = scrollLeft - walk;
+});
